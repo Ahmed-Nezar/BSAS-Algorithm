@@ -15,21 +15,20 @@ data_points = [
     (3, 3),  # x7
     (8, 2),  # x10
     (2, 4),  # x9
-    (10, 2), # x12
-    (11, 2), # x13
-    (10, 3), # x14
-    (9, 1)  # x15
+    (10, 2),  # x12
+    (11, 2),  # x13
+    (10, 3),  # x14
+    (9, 1),  # x15
 ]
 
 data_array = np.array(data_points)
 
-bsas_model = BSAS(min_distance=2.5, max_clusters=15)
+bsas_model = BSAS(max_distance=2.5, max_clusters=15, distance_metric='euclidean')
 
 bsas_model.fit(data_array)
 
-print("Cluster Labels: ",bsas_model.labels)
+print("Cluster Labels: ", bsas_model.labels)
 
 output_list = save_output_labels(bsas_model, data_array)
 
-save_output_json(output_list, 'output.json')
-
+save_output_json(output_list, "output.json")
