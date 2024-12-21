@@ -15,7 +15,7 @@ class BSAS:
         for i in range(1, len(X)):
             
             distances = [self._distance(np.array(X[i]), centroid) for centroid in self.centroids]
-            if min(distances) > self.max_distance and self.cluster < self.max_clusters:
+            if min(distances) > self.max_distance and self.cluster < self.max_clusters -1:
                 self.cluster += 1
                 self.centroids.append(np.array(X[i]))
                 self.labels.append(self.cluster)
